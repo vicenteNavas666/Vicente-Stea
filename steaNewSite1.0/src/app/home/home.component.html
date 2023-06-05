@@ -1,8 +1,10 @@
 
-<div>
-    <h2>Servizi</h2>
-    <div *ngFor="let services of fireService.itemsHome">
-        <h1>{{services.title}}</h1>
-        <p>{{services.description}}</p>
-    </div>
+
+<div class="text-3xl h-full flex py-96 px-32">
+    <h1>servizi</h1>
+    <div *ngFor="let item of items" class="border rounded-lg">
+        <h2>{{ item.homeTitle }}</h2>
+        <p>{{ item.homeDescription}}</p>
+      </div>
 </div>
+  

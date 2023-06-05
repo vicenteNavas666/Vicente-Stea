@@ -1,12 +1,12 @@
-<div class="">
-  <nav class="flex px-4 b items-center relative pr-32 ">
-    <div class="text-lg font-bold md:py-0 py-4 pl-32">
+<div class=" ">
+  <nav class="flex px-4 b items-center relative pl-32 pr-32">
+    <div class="text-lg font-bold md:py-0 py-4 ">
       <img src="assets/img/stea_logo-w.png" alt="" height="" id="logo">
     </div>
 
-    <ul class= " md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0 ">
+    <ul class="md:px-2 ml-auto md:flex md:space-x-2 absolute md:relative top-full left-0 right-0 ">
       <li class="">
-        <a routerLinkActive="active-link"  routerLink="/home" class="nav-link flex md:inline-flex p-4 items-center hover:bg-gray-50 space-x-1.5 s">
+        <a routerLink="/home" class="flex md:inline-flex p-4 items-center hover:bg-gray-50 space-x-1.5 s">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
           </svg>
@@ -14,7 +14,7 @@
         </a>
       </li>
       <li>
-        <a routerLinkActive="active-link"  routerLink="/societa" class="nav-link flex md:inline-flex p-4 items-center hover:bg-gray-50 space-x-1.5 s">
+        <a routerLink="/societa" class="flex md:inline-flex p-4 items-center hover:bg-gray-50 space-x-1.5 s">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
           </svg>
@@ -22,22 +22,22 @@
         </a>
       </li>
       <li class="relative parent">
-        <a  routerLinkActive="active-link"  href="#" class="nav-link flex justify-between md:inline-flex p-4 items-center hover:bg-gray-50 space-x-2">
+        <a href="#" class="flex justify-between md:inline-flex p-4 items-center hover:bg-gray-50 space-x-2">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
-          <span>Services</span>
+          <span>Service</span>
         </a>
-        <ul class="child transition duration-300 md:absolute top-full right-0 md:w-48 bg-white md:shadow-lg md:rounded-b w-10">
-          <li *ngFor="let links of fireService.items" class="py-3 px-2 text-sm text-gray-600">
+        <ul class="child transition duration-300 md:absolute top-full right-0 md:w-48 bg-white md:shadow-lg md:rounded-b ">
+          <li *ngFor="let links of items" class="py-3 px-2 text-sm text-gray-500">
             
-              <a href="/servizi/:id">{{ links.title }}</a>
+              <a href="">{{ links.title }}</a>
             
           </li>
         </ul>
       </li>
       <li>
-        <a routerLinkActive="active-link"  routerLink="/about" class="nav-link flex md:inline-flex p-4 items-center hover:bg-gray-50">
+        <a routerLink="/about" class="flex md:inline-flex p-4 items-center hover:bg-gray-50">
           <span>About us</span>
         </a>
       </li>
@@ -48,6 +48,4 @@
 
 
 </div>
-
-
 <app-footer></app-footer>

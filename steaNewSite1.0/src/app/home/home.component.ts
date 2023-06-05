@@ -12,14 +12,18 @@ import { NgControl } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+  items: Item[] = [];
 
-  constructor(public fireService: FireService) { }
+  constructor(private firebaseService: FireService) { }
 
-  ngOnInit() {
-    this.fireService.getItemsFromFirestore();
+  async ngOnInit() {
+    this.items = await this.firebaseService.getItemsFromFirestore();
+    console.log(this.items);
+  
   }
 
-}
+
+ }
 
 
  

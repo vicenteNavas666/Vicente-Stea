@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, doc, getDocs, collection} from 'firebase/firestore';
+import { getFirestore, doc, getDocs, collection, QuerySnapshot} from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
 import { Item } from '../shared/models/models';
 import { initializeApp } from 'firebase/app';
@@ -10,30 +10,19 @@ import { initializeApp } from 'firebase/app';
 })
 export class FireService {
 
-  constructor() { }
-
-  items: Item[] = [];
-  itemsHome: Item[] = [];
-
-  async navgetItemsFromFirestore(){
+  async getItemsFromFirestore(): Promise<Item[]> {
     const firebaseApp = initializeApp(environment.firebaseConfig);
     const firestore = getFirestore(firebaseApp);
-    const querySnapshot = await getDocs(collection(firestore, 'servizi'));
+    const querySnapshot: QuerySnapshot = await getDocs(collection(firestore, 'servizi'));
+
+    const items: Item[] = [];
+
     querySnapshot.forEach((doc) => {
-      console.log(this.items)
-      this.items.push(doc.data() as Item);
+      items.push(doc.data() as Item);
     });
-}
 
-
-async getItemsFromFirestore(){
-  const firebaseApp = initializeApp(environment.firebaseConfig);
-  const firestore = getFirestore(firebaseApp);
-  const querySnapshot = await getDocs(collection(firestore, 'serviziHome'));
-  querySnapshot.forEach((doc) => {
-    console.log(this.itemsHome)
-    this.itemsHome.push(doc.data() as Item);
-  });
+    return items;
+  }
 }
 
 
@@ -42,4 +31,4 @@ async getItemsFromFirestore(){
 
 
 
-}
+
