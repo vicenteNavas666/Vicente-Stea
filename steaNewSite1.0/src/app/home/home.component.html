@@ -1,5 +1,10 @@
-<div class=" py-4 ">
-    <div class="text-6xl font-bold h-96">
-        <h1>SIamo una Società di Engineering</h1>
-</div>
 
+
+<div class="text-3xl h-full flex">
+    <h1>servizi</h1>
+    <div *ngFor="let item of fireService.items" class="border rounded-lg">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.description }}</p>
+      </div>
+</div>
+  

@@ -9,7 +9,10 @@ import { SocietaComponent } from './societa/societa.component';
 import { ServiziComponent } from './servizi/servizi.component';
 import { DettaglioServiziComponent } from './dettaglio-servizi/dettaglio-servizi.component';
 import { AboutComponent } from './about/about.component';
-import { FirebaseApp } from 'firebase/app';
+import {AngularFireModule} from '@angular/fire/compat'
+import { environment } from '../environments/environment';
+import { FireService } from './serìvices/fire.service';
+
 
 @NgModule({
   declarations: [
@@ -19,13 +22,15 @@ import { FirebaseApp } from 'firebase/app';
     SocietaComponent,
     ServiziComponent,
     DettaglioServiziComponent,
-    AboutComponent
+    AboutComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [FireService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

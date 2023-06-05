@@ -29,20 +29,10 @@
           <span>Service</span>
         </a>
         <ul class="child transition duration-300 md:absolute top-full right-0 md:w-48 bg-white md:shadow-lg md:rounded-b">
-          <li>
-            <a href="#" class="flex px-4 py-3 hover:bg-gray-50">
-              Web development
-            </a>
-          </li>
-          <li>
-            <a href="#" class="flex px-4 py-3 hover:bg-gray-50">
-              Web Design
-            </a>
-          </li>
-          <li>
-            <a href="#" class="flex px-4 py-3 hover:bg-gray-50">
-              Machine Learning
-            </a>
+          <li *ngFor="let links of fireService.items">
+            
+              <a href="">{{ links.title }}</a>
+            
           </li>
         </ul>
       </li>
