@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Item } from '../shared/models/models';
 import { initializeApp } from 'firebase/app';
 import { FireService } from '../serìvices/fire.service';
+import { NgControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +12,14 @@ import { FireService } from '../serìvices/fire.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+
   constructor(public fireService: FireService) { }
 
-
-  ngOnInit(): void {
+  ngOnInit() {
     this.fireService.getItemsFromFirestore();
   }
 
+}
 
- }
+
+ 

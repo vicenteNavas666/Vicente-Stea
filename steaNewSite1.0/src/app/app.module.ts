@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from '../environments/environment';
 import { FireService } from './serìvices/fire.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FireService } from './serìvices/fire.service';
     ServiziComponent,
     DettaglioServiziComponent,
     AboutComponent,
+    FooterComponent,
 
   ],
   imports: [

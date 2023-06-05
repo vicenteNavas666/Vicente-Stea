@@ -21,3 +21,30 @@
         height: 25%; 
         width: 25%;
     }
+
+
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
+      .nav-link {
+        position: relative;
+      }
+      
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #ff2600; /* Color café */
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-link:hover::after,
+      .nav-link.active-link::after {
+        transform: scaleX(1);
+      }

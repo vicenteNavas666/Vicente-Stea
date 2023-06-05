@@ -13,8 +13,9 @@ export class FireService {
   constructor() { }
 
   items: Item[] = [];
+  itemsHome: Item[] = [];
 
-  async getItemsFromFirestore(){
+  async navgetItemsFromFirestore(){
     const firebaseApp = initializeApp(environment.firebaseConfig);
     const firestore = getFirestore(firebaseApp);
     const querySnapshot = await getDocs(collection(firestore, 'servizi'));
@@ -23,4 +24,22 @@ export class FireService {
       this.items.push(doc.data() as Item);
     });
 }
+
+
+async getItemsFromFirestore(){
+  const firebaseApp = initializeApp(environment.firebaseConfig);
+  const firestore = getFirestore(firebaseApp);
+  const querySnapshot = await getDocs(collection(firestore, 'serviziHome'));
+  querySnapshot.forEach((doc) => {
+    console.log(this.itemsHome)
+    this.itemsHome.push(doc.data() as Item);
+  });
+}
+
+
+
+
+
+
+
 }

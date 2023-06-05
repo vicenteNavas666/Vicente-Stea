@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   constructor(public fireService: FireService) { }
 
   ngOnInit() {
-    this.fireService.getItemsFromFirestore();
+    this.fireService.navgetItemsFromFirestore();
   }
 
 
