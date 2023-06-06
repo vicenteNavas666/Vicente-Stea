@@ -7,12 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { Error404Component } from './error404/error404.component';
 import { SocietaComponent } from './societa/societa.component';
 import { ServiziComponent } from './servizi/servizi.component';
-import { DettaglioServiziComponent } from './dettaglio-servizi/dettaglio-servizi.component';
 import { AboutComponent } from './about/about.component';
 import {AngularFireModule} from '@angular/fire/compat'
 import { environment } from '../environments/environment';
 import { FireService } from './serìvices/fire.service';
 import { FooterComponent } from './footer/footer.component';
+
+import { DetagliserviziComponent } from './dettaglio-servizi/dettaglio-servizi.component';
+
 
 
 @NgModule({
@@ -22,15 +24,17 @@ import { FooterComponent } from './footer/footer.component';
     Error404Component,
     SocietaComponent,
     ServiziComponent,
-    DettaglioServiziComponent,
     AboutComponent,
     FooterComponent,
+    DetagliserviziComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+
+    
   ],
   providers: [FireService],
   bootstrap: [AppComponent]
