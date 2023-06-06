@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getFirestore, doc, getDocs, collection, QuerySnapshot, DocumentReference} from 'firebase/firestore';
+import { getFirestore, doc, getDocs, collection, QuerySnapshot, DocumentReference, getDoc, where, query} from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
 import { Item } from '../shared/models/models';
 import { initializeApp } from 'firebase/app';
@@ -10,35 +10,37 @@ import { initializeApp } from 'firebase/app';
   providedIn: 'root'
 })
 export class FireService {
+
   async getItemsFromFirestore(): Promise<Item[]> {
     const firebaseApp = initializeApp(environment.firebaseConfig);
     const firestore = getFirestore(firebaseApp);
-
-    const serviziCollectionRef = collection(firestore, 'servizi');
-    const querySnapshot: QuerySnapshot = await getDocs(serviziCollectionRef);
+    const querySnapshot: QuerySnapshot = await getDocs(collection(firestore, 'servizi'));
 
     const items: Item[] = [];
 
-    for (const doc of querySnapshot.docs) {
-      const itemData = doc.data() as Item;
-      itemData.siOcuppa = await this.getSubcollectionData(doc.ref, 'SiOcuppa');
-      itemData.img = await this.getSubcollectionData(doc.ref, 'img');
-      items.push(itemData);
-    }
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data() as Item);
+    });
 
     return items;
   }
 
-  private async getSubcollectionData(parentRef: DocumentReference, subcollectionPath: string): Promise<any[]> {
-    const subcollectionRef = collection(parentRef, subcollectionPath);
-    const subcollectionSnapshot = await getDocs(subcollectionRef);
-
-    const data: any[] = [];
-
-    subcollectionSnapshot.forEach((doc) => {
-      data.push(doc.data());
-    });
-
-    return data;
+  async getItemDetailsById(itemId: number): Promise<Item> {
+    const firebaseApp = initializeApp(environment.firebaseConfig);
+    const firestore = getFirestore(firebaseApp);
+  
+    const querySnapshot = await getDocs(
+      query(collection(firestore, 'servizi'), where('id', '==', itemId))
+    );
+  
+    if (!querySnapshot.empty) {
+      const itemDocSnapshot = querySnapshot.docs[0];
+      const itemData = itemDocSnapshot.data() as Item;
+      return itemData;
+    } else {
+      throw new Error('No se encontró el elemento con el ID proporcionado');
+    }
   }
+  
+  
 }

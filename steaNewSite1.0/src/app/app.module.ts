@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -26,12 +26,14 @@ import { DetagliserviziComponent } from './dettaglio-servizi/dettaglio-servizi.c
     ServiziComponent,
     AboutComponent,
     FooterComponent,
-    DetagliserviziComponent
+
+   
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
 
     

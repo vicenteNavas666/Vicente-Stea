@@ -31,8 +31,7 @@
         <ul class="child transition duration-300 md:absolute top-full right-0 md:w-48 bg-white md:shadow-lg md:rounded-b ">
           <li *ngFor="let links of items" class="py-3 px-2 text-sm text-gray-500">
             
-              <a href="">{{ links.title }}</a>
-            
+            <a [routerLink]="['/servizi', links.id]">{{ links.title }}</a>
           </li>
         </ul>
       </li>
