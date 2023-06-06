@@ -25,5 +25,6 @@ export interface img{
 export interface pageLinks{
   id: number;
   name: string;
-  url: string
+  url: string; 
+  logo: string;
 }
