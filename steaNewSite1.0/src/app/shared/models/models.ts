@@ -19,3 +19,11 @@ export interface img{
     id: number;
     title: string;
   }
+
+
+
+export interface pageLinks{
+  id: number;
+  name: string;
+  url: string
+}
